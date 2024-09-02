@@ -4,27 +4,46 @@ async function getCharacterData() {
     const response = await fetch(charUrl);
     const characterData = await response.json();
 
+    const personalInfo = {
+        name: characterData.name,
+        yearOfBirth: characterData.birthYear,
+        yearOfDeath: characterData.deathYear,
+        placeOfBirth: characterData.birthPlace,
+        placeOfDeath: characterData.deathPlace
+    };
+
+    const performerData = await Promise.all(
+        performerIds.map(performerId => {
+            const episodeUrl = `http://stapi.co/api/v1/rest/performer?uid=${performerId}`;
+            return fetch(episodeUrl).then(response => response.json());
+        })
+    );
+    const performer = performerData.map(performer => ({
+        name: performer.name,
+        birthYear: performer.birthYear,
+        placeOfBirth: performer.placeOfBirth,
+    }));
+
     const episodesIds = characterData.episodes.map(episode => episode.id);
     const movieIds = characterData.movies.map(movie => movie.id);
-
+    
     //Fetch episodes
     const episodeData = await Promise.all(
         episodesIds.map(episodeId => {
-            const episodeUrl = 'http://stapi.co/api/v1/rest/episode?uid=${uid}';
+            const episodeUrl = `http://stapi.co/api/v1/rest/episode?uid=${episodeId}`;
             return fetch(episodeUrl).then(response => response.json());
         })
     );
 
     //Fetch movies
     const movieData = await Promise.all(
-        moviesIds.map(movieId => {
-            const movieUrl = 'http://stapi.co/api/v1/rest/movie?uid=${uid}';
-            return fetch(movieUrl).then(response => response.json());
+        movieIds.map(movieId => {
+            const movieUrl = `http://stapi.co/api/v1/rest/movie?uid=${movieId}`;
+            return fetch(movieUrl).then(response => response.json())
         })
     );
     
     const episodes = episodeData.map(episode => ({
-        uid: episode.uid,
         title: episode.title,
         seasonNumber: episode.seasonNumber,
         episodeNumber: episode.episodeNumber,
@@ -32,29 +51,28 @@ async function getCharacterData() {
     }));
     
     const movies = movieData.map(movie => ({
-        uid: movie.uid,
         title: movie.title,
         usReleaseDate: movie.usReleaseDate
     }))
 
     const characterRelations = characterData.characterRelations
-        .filter(relation => relation.target.uid !== 'CHMA0000261620' && relation.source.uid !== 'CHMA0000261620')
+        .filter(relation => relation.target.uid !== `CHMA000026160` && relation.source.uid !== `CHMA0000261620`)
         .map(relation => ({
         type: relation.type,
         character: relation.target.name
     }));
     
     const titles = characterData.titles.map(title => ({
-        uid: title.uid,
         name: title.name
     }))
 
     const organizations = characterData.organizations.map(organization => ({
-        uid: organization.uid,
         name: organization.name
     }))
 
     return {
+        personalInfo,
+        performer,
         episodes,
         movies,
         characterRelations,
