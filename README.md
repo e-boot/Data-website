@@ -58,10 +58,10 @@ To get started with the project, clone the repository using the following comman
 
 ```bash
 # HTTPS
-git clone git@github.com:coelhof12/website-certoma.git
+git clone https://github.com/e-boot/Data-website.git
 
 # SSH
-git clone git@github.com:coelhof12/website-certoma.git
+git clone git@github.com:e-boot/Data-website.git
 ```
 ## Contributing
 
