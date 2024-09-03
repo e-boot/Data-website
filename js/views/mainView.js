@@ -2,27 +2,25 @@ import { element } from "./components/element.js";
 import { button } from "./components/button.js";
 import { image } from "./components/image.js";
 import { createBio } from "./bioView.js";
+import { div } from "./components/div.js";
 
 const container = document.getElementById('container');
 
 function createMainView() {
 
-    container.innerHTML = '';
-    window.history.pushState({},'', "/index.html");
-    const viewContainer = document.createElement('div');
-    viewContainer.classList.add('view-container');
+    container.innerHTML = ''; // clear container 
 
+    window.history.pushState({},'', "/index.html"); // update url to index.html
+    const viewContainer = div('view-container');
 
     // create h1 greeting 
     const greeting = element("h1", ["greeting"], "Hi! I'm Data!");
-    viewContainer.appendChild(greeting);
+    viewContainer.appendChild(greeting); // append h1 to view container
 
 
     // create combined image
-    const combinedImage = image("/assets/combined_croped.png", "Data with background");
-    combinedImage.classList.add('combined-image');
+    const combinedImage = image("/assets/combined_croped.png", "Data with background",["combined-image"]);
     viewContainer.appendChild(combinedImage);
-
 
     // create exploration text
     const explorationText = element("p", ["exploration-text"], "What do you wanna explore?");
@@ -30,17 +28,18 @@ function createMainView() {
 
 
     // create buttons container
-    const btnContainer = document.createElement('div');
-    btnContainer.classList.add("btn-container");
+    const btnContainer = div('btn-container');
 
+    //create appearance button
     const appearancesBtn = button("Appearances");
-    const bioBtn = button("Biography");
-
-
-    // add event listeners to the buttons
+    
     appearancesBtn.addEventListener('click', () => {
         window.location.href = "/appearances.html"; 
     });
+
+
+    // create bio button
+    const bioBtn = button("Biography");
 
     bioBtn.addEventListener('click', (event) => {
         event.preventDefault();
@@ -54,8 +53,8 @@ function createMainView() {
     btnContainer.appendChild(bioBtn);
     viewContainer.appendChild(btnContainer);
 
-
     container.appendChild(viewContainer);
+
     return viewContainer;
 }
 

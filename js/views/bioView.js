@@ -1,13 +1,15 @@
 import { createBackBtn } from "./components/backBtn.js";
 import { createBanner } from "./components/banner.js";
+import { div } from "./components/div.js";
+import { element } from "./components/element.js";
 
 
-// Get the container div
 const container = document.getElementById('container');
 
 // main function to create bio page
 function createBio() {
-    container.innerHTML = '';
+    container.innerHTML = ''; // clear container
+
     createBanner(container);
     createBackBtn(container);
     createMainContent(container);
@@ -15,11 +17,12 @@ function createBio() {
 }
 
 
-// helper function:
+// helper function :
 
 function createMainContent(container){
+
 // content container 
-const mainContent = document.createElement('div');
+const mainContent = div('main-content');
 mainContent.style.backgroundColor = '#d4a572';
 mainContent.style.padding = '20px';
 mainContent.style.fontFamily = 'Arial, sans-serif';
@@ -36,8 +39,7 @@ container.appendChild(mainContent);
 
 // helper functions of createMainContent() : 
 function createTitle(mainContent) {
-    const title = document.createElement('h2');
-    title.innerText = 'Biography';
+    const title = element('h2',["title",'Biography']);
     title.style.textAlign = 'center';
     mainContent.appendChild(title);
     }
