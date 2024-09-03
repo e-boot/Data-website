@@ -34,7 +34,7 @@ function createMainView() {
 
     //create appearance button
     const appearancesBtn = button("Appearances");
-    
+
     appearancesBtn.addEventListener('click', (event) => {
         event.preventDefault();
         console.log('button clicked');

@@ -1,5 +1,7 @@
 import { createMainView } from "../mainView.js";
 
+
+
 function createBackBtn(container) {
     // Create a back button
 const backButton = document.createElement('button');

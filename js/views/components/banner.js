@@ -1,15 +1,18 @@
 // Create a header with the Star Trek title
-function createBanner(container) {
-const header = document.createElement('div');
-header.innerText = 'STAR TREK';
-header.style.backgroundColor = '#000';
-header.style.color = '#ffd700';
-header.style.padding = '5px';
-header.style.textAlign = 'center';
-header.style.fontFamily = 'Arial, sans-serif';
-header.style.fontSize = '24px';
-header.style.fontWeight = 'bold';
-container.appendChild(header);
+
+const bannerContainer = document.getElementById('banner');
+
+function createBanner() {
+const banner = document.createElement('div');
+banner.innerText = 'STAR TREK';
+banner.style.backgroundColor = '#000';
+banner.style.color = '#ffd700';
+banner.style.padding = '5px';
+banner.style.textAlign = 'center';
+banner.style.fontFamily = 'Arial, sans-serif';
+banner.style.fontSize = '24px';
+banner.style.fontWeight = 'bold';
+bannerContainer.appendChild(banner);
 
 }
 

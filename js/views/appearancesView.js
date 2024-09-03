@@ -1,5 +1,4 @@
 import { createBackBtn } from "./components/backBtn.js";
-import { createBanner } from "./components/banner.js";
 import { div } from "./components/div.js";
 import { element } from "./components/element.js";
 import { movieImages } from "./components/movies-images.js";
@@ -10,7 +9,6 @@ const container = document.getElementById('container');
 async function createAppearances() {
     container.innerHTML = '';
 
-    createBanner(container);
     createBackBtn(container);
     createMainContent();
 }
