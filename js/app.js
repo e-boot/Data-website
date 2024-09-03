@@ -1,3 +1,5 @@
-import {createBio} from './views/bio.js'
+import {createBio} from './views/bioView.js'
+
+
 
 createBio();
