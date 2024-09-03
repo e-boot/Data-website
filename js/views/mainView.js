@@ -4,6 +4,7 @@ import { image } from "./components/image.js";
 import { createBio } from "./bioView.js";
 import { div } from "./components/div.js";
 
+
 const container = document.getElementById('container');
 
 function createMainView() {
@@ -57,6 +58,5 @@ function createMainView() {
 
     return viewContainer;
 }
-
 
 export { createMainView };
