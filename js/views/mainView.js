@@ -3,6 +3,7 @@ import { button } from "./components/button.js";
 import { image } from "./components/image.js";
 import { createBio } from "./bioView.js";
 import { div } from "./components/div.js";
+import { createAppearances } from "./appearancesView.js";
 
 
 const container = document.getElementById('container');
@@ -34,8 +35,11 @@ function createMainView() {
     //create appearance button
     const appearancesBtn = button("Appearances");
     
-    appearancesBtn.addEventListener('click', () => {
-        window.location.href = "/appearances.html"; 
+    appearancesBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log('button clicked');
+        createAppearances();
+        window.history.pushState({},'', "/appearances.html");
     });
 
 
@@ -48,6 +52,8 @@ function createMainView() {
         createBio();
         window.history.pushState({},'', "/bio.html");
     });
+
+    
 
 
     btnContainer.appendChild(appearancesBtn);
