@@ -1,3 +1,4 @@
+import { createMainView } from "../mainView.js";
 
 function createBackBtn(container) {
     // Create a back button
@@ -11,7 +12,14 @@ backButton.style.padding = '5px 10px';
 backButton.style.cursor = 'pointer';
 backButton.style.fontWeight = 'bold';
 backButton.onclick = () => window.history.back();
+
+backButton.addEventListener('click', () => {
+    
+    createMainView();
+});
+
 container.appendChild(backButton);
+
     
 }
 

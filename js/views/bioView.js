@@ -7,10 +7,10 @@ const container = document.getElementById('container');
 
 // main function to create bio page
 function createBio() {
-
-createBanner(container);
-createBackBtn(container);
-createMainContent(container);
+    container.innerHTML = '';
+    createBanner(container);
+    createBackBtn(container);
+    createMainContent(container);
 
 }
 

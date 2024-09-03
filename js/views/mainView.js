@@ -1,10 +1,13 @@
 import { element } from "./components/element.js";
 import { button } from "./components/button.js";
 import { image } from "./components/image.js";
+import { createBio } from "./bioView.js";
 
 const container = document.getElementById('container');
 
 function createMainView() {
+
+    container.innerHTML = '';
     const viewContainer = document.createElement('div');
     viewContainer.classList.add('view-container');
 
@@ -39,7 +42,8 @@ function createMainView() {
     });
 
     bioBtn.addEventListener('click', () => {
-        window.location.href = "/biography.html"; // change the path when needed
+        console.log('button clicked');
+        createBio();
     });
 
 
