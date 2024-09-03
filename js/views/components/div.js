@@ -1,9 +1,7 @@
-import {element } from "./element";
-
 function div(classNames = []) {
     const div =document.createElement('div');
 
-    div.classList.add('container');
+    div.classList.add(classNames);
     return div;
 
 }
