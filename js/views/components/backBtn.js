@@ -13,9 +13,12 @@ backButton.style.cursor = 'pointer';
 backButton.style.fontWeight = 'bold';
 backButton.onclick = () => window.history.back();
 
-backButton.addEventListener('click', () => {
-    
+backButton.addEventListener('click', (event) => {
+   event.preventDefault(); 
     createMainView();
+
+    // change url 
+    window.history.pushState({},'','/index.html');
 });
 
 container.appendChild(backButton);

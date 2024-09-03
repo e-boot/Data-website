@@ -8,6 +8,7 @@ const container = document.getElementById('container');
 function createMainView() {
 
     container.innerHTML = '';
+    window.history.pushState({},'', "/index.html");
     const viewContainer = document.createElement('div');
     viewContainer.classList.add('view-container');
 
@@ -38,12 +39,14 @@ function createMainView() {
 
     // add event listeners to the buttons
     appearancesBtn.addEventListener('click', () => {
-        window.location.href = "/appearances.html"; // change the path when needed
+        window.location.href = "/appearances.html"; 
     });
 
-    bioBtn.addEventListener('click', () => {
+    bioBtn.addEventListener('click', (event) => {
+        event.preventDefault();
         console.log('button clicked');
         createBio();
+        window.history.pushState({},'', "/bio.html");
     });
 
 
