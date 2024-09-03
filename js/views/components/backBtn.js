@@ -9,6 +9,7 @@ backButton.style.border = 'none';
 backButton.style.borderRadius = '10px',
 backButton.style.padding = '5px 10px';
 backButton.style.cursor = 'pointer';
+backButton.style.fontWeight = 'bold';
 backButton.onclick = () => window.history.back();
 container.appendChild(backButton);
     

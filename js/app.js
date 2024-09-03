@@ -1,3 +1,3 @@
-import { createMainView } from "./views/mainView.js";
+import {createBio} from './views/bio.js'
 
-createMainView();
+createBio();

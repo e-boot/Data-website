@@ -5,7 +5,7 @@ import { createBanner } from "./components/banner.js";
 // Get the container div
 const container = document.getElementById('container');
 
-
+// main function to create bio page
 function createBio() {
 
 createBanner(container);
@@ -13,30 +13,40 @@ createBackBtn(container);
 createMainContent(container);
 
 }
-// Create a main content area
+
+
+// helper function:
+
 function createMainContent(container){
+// content container 
 const mainContent = document.createElement('div');
 mainContent.style.backgroundColor = '#d4a572';
 mainContent.style.padding = '20px';
 mainContent.style.fontFamily = 'Arial, sans-serif';
+mainContent.style.fontSize = '12px'
 
-// Create a title for the biography
-const title = document.createElement('h1');
-title.innerText = 'Biography';
-title.style.textAlign = 'center';
-mainContent.appendChild(title);
+createTitle(mainContent);
+createImage(mainContent);
+createDetails(mainContent);
+createParagraph(mainContent);
 
-// Create a paragraph with biography details
-const paragraph = document.createElement('p');
-paragraph.innerText = `
-    Data is a fictional character in Star Trek franchise.
-    Data is a self-aware, sapient, sentient and anatomically fully functional male android who serves as the second officer and chief operations officer aboard the Federal starship USS Enterprise-D and later the USS Enterprise-E.
-    Data is in many ways a successor to the original Star Trek's Spock, in that the character has superior mental skills and offers an "outsider's" perspective on humanity.
-`;
-paragraph.style.lineHeight = '1.6';
-mainContent.appendChild(paragraph);
+container.appendChild(mainContent);
+}
 
-// Create a list for biography details
+
+// helper functions of createMainContent() : 
+function createTitle(mainContent) {
+    const title = document.createElement('h2');
+    title.innerText = 'Biography';
+    title.style.textAlign = 'center';
+    mainContent.appendChild(title);
+    }
+
+function createDetails(mainContent){
+   const detailsContainer = document.createElement('div');
+   
+
+   // Create a list for biography details
 const ul = document.createElement('ul');
 const details = [
     'Date of birth:',
@@ -50,21 +60,34 @@ details.forEach(detail => {
     li.innerText = detail;
     ul.appendChild(li);
 });
-mainContent.appendChild(ul);
+detailsContainer.appendChild(ul);
 
-// Append the main content to the container
-container.appendChild(mainContent);
+
+mainContent.appendChild(detailsContainer);
 }
 
-function createImage(){
-// Create an image of the character (optional)
-const img = document.createElement('img');
-img.src = '../../assets/avatar.png'; // Replace with the path to the actual image
-img.style.width = '150px';
-img.style.margin = '20px auto';
-img.style.display = 'block';
+
+function createImage(mainContent){
+    const img = document.createElement('img');
+    img.src = '../../assets/combined_croped.png';
+    img.style.width = '100%';
+    img.style.margin = '20px auto';
+    img.style.display = 'block';
 mainContent.appendChild(img);
+    
+    }
 
-}
+   // Create a paragraph with bio
+   function createParagraph(mainContent) {
+    
+    const paragraph = document.createElement('p');
+    paragraph.innerText = `
+        Data is a fictional character in Star Trek franchise.
+        Data is a self-aware, sapient, sentient and anatomically fully functional male android who serves as the second officer and chief operations officer aboard the Federal starship USS Enterprise-D and later the USS Enterprise-E.\n
+        Data is in many ways a successor to the original Star Trek's Spock, in that the character has superior mental skills and offers an "outsider's" perspective on humanity.
+    `;
+    paragraph.style.lineHeight = '1.7';
+    mainContent.appendChild(paragraph);
+   }
 
 export {createBio}
