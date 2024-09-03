@@ -13,10 +13,10 @@ function createMainView() {
     container.innerHTML = ''; // clear container 
 
     window.history.pushState({},'', "/index.html"); // update url to index.html
-    const viewContainer = div('view-container');
+    const viewContainer = div(['view-container']);
 
     // create h1 greeting 
-    const greeting = element("h1", ["greeting"], "Hi! I'm Data!");
+    const greeting = element("h1", ['greeting'], "Hi! I'm Data!");
     viewContainer.appendChild(greeting); // append h1 to view container
 
 
@@ -30,7 +30,7 @@ function createMainView() {
 
 
     // create buttons container
-    const btnContainer = div('btn-container');
+    const btnContainer = div(['btn-container']);
 
     //create appearance button
     const appearancesBtn = button("Appearances");

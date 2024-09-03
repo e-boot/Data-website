@@ -1,3 +1,4 @@
+import { getCharacter } from "../services/character-service.js";
 import { createBackBtn } from "./components/backBtn.js";
 import { div } from "./components/div.js";
 import { element } from "./components/element.js";
@@ -16,7 +17,7 @@ function createBio() {
 
 
 // helper function :
-function createMainContent(container){
+async function createMainContent(container){
 
 // content container 
 const mainContent = div('main-content');
@@ -27,7 +28,12 @@ mainContent.style.fontSize = '12px'
 
 createTitle(mainContent);
 createImage(mainContent);
-createDetails(mainContent);
+try{
+    const characterInfo = await getCharacter();
+    createDetails(mainContent,characterInfo);
+}catch(error){
+    console.error('Failed to fetch and create character details',error);
+}
 createParagraph(mainContent);
 
 container.appendChild(mainContent);
@@ -36,22 +42,21 @@ container.appendChild(mainContent);
 
 // helper functions of createMainContent() : 
 function createTitle(mainContent) {
-    const title = element('h2',["title",'Biography']);
+    const title = element('h2',["title"],'Biography');
     title.style.textAlign = 'center';
     mainContent.appendChild(title);
     }
 
-function createDetails(mainContent){
+function createDetails(mainContent, characterInfo){
    const detailsContainer = div();
    
    // Create a list for biography details
 const ul = element('ul');
 const details = [
-    'Date of birth:',
-    'Date of death:',
-    'Place of birth:',
-    'Place of death:',
-    'Actor:'
+    `Date of birth: ${characterInfo.yearOfBirth || 'Unknown'}`,
+        `Date of death: ${characterInfo.yearOfDeath || 'Unknown'}`,
+        `Place of birth: ${characterInfo.placeOfBirth || 'Unknown'}`,
+        `Place of death: ${characterInfo.placeOfDeath || 'Unknown'}`,
 ];
 details.forEach(detail => {
     const li = element('li');
@@ -66,7 +71,7 @@ mainContent.appendChild(detailsContainer);
 
 
 function createImage(mainContent){
-    const img = image('../../assets/combined_croped.png','Data image',"data-image-bio");
+    const img = image('../../assets/combined_croped.png','Data image',"combined-image");
     img.style.width = '100%';
     img.style.margin = '20px auto';
     img.style.display = 'block';
