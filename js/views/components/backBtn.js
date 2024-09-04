@@ -13,6 +13,7 @@ backButton.style.borderRadius = '10px',
 backButton.style.padding = '5px 10px';
 backButton.style.cursor = 'pointer';
 backButton.style.fontWeight = 'bold';
+backButton.style.display = 'block';
 backButton.onclick = () => window.history.back();
 
 backButton.addEventListener('click', (event) => {
