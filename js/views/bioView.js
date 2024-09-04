@@ -16,18 +16,13 @@ function createBio() {
 }
 
 
-// helper function :
 async function createMainContent(container){
 
 // content container 
-const mainContent = div('main-content');
-mainContent.style.backgroundColor = '#d4a572';
-mainContent.style.padding = '20px';
-mainContent.style.fontFamily = 'Arial, sans-serif';
-mainContent.style.fontSize = '12px'
-
+const mainContent = div('bio-main-content');
 createTitle(mainContent);
 createImage(mainContent);
+
 try{
     const characterInfo = await getCharacter();
     createDetails(mainContent,characterInfo);
@@ -43,12 +38,11 @@ container.appendChild(mainContent);
 // helper functions of createMainContent() : 
 function createTitle(mainContent) {
     const title = element('h2',["title"],'Biography');
-    title.style.textAlign = 'center';
     mainContent.appendChild(title);
     }
 
 function createDetails(mainContent, characterInfo){
-   const detailsContainer = div();
+   const detailsContainer = div(['details-container']);
    
    // Create a list for biography details
 const ul = element('ul');
@@ -72,11 +66,7 @@ mainContent.appendChild(detailsContainer);
 
 function createImage(mainContent){
     const img = image('../../assets/combined_croped.png','Data image',"combined-image");
-    img.style.width = '100%';
-    img.style.margin = '20px auto';
-    img.style.display = 'block';
-mainContent.appendChild(img);
-    
+    mainContent.appendChild(img);
     }
 
    // Create a paragraph with bio
@@ -92,7 +82,7 @@ mainContent.appendChild(img);
         Star Trek's Spock, in that the character has superior mental 
         skills and offers an "outsider's" perspective on humanity.
     `;
-    paragraph.style.lineHeight = '1.7';
+    
     mainContent.appendChild(paragraph);
    }
 

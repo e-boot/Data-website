@@ -15,11 +15,7 @@ async function createAppearances() {
 }
 
 async function createMainContent() {
-    const mainContent = div(['main-content']);
-
-    mainContent.style.padding = '20px';
-    mainContent.style.fontFamily = 'Arial, sans-serif';
-    mainContent.style.fontSize = '18px';
+    const mainContent = div(['appearance-main-content']);
 
     createTitle(mainContent);
     createMovieCard(mainContent);  
@@ -29,7 +25,6 @@ async function createMainContent() {
 // Title
 function createTitle(mainContent) {
     const title = element('h2', ["title"], 'Appearances');
-    title.style.textAlign = 'center';
     mainContent.appendChild(title);
 }
 
@@ -41,26 +36,18 @@ async function createMovieCard(mainContent) {
 
         movies.forEach(movie => {
             const movieCard = div(['movie-card']);
-
+            
             const imageSrc = movieImages[movie.title] || 'default-image.jpg'; 
-            const imageCard = createImageCard(imageSrc);
-            movieCard.appendChild(imageCard);
+            const movieImage = image(imageSrc, ' ', 'movie-image');
+
+            movieCard.appendChild(movieImage);
 
             const titleBox = div(['title-box']);
-            titleBox.style.backgroundColor = '#000';
-            titleBox.style.alignContent = 'center';
-
+           
             const itemTitle = element('h3', ['item-title'], movie.title);
-            itemTitle.style.color = 'white';
-            itemTitle.style.fontWeight = 'bold';
-            itemTitle.style.textAlign = 'center';
-            itemTitle.style.margin = '10px';
-
+        
             const itemYear = element('h4', ['item-year'], movie.usReleaseDate);
-            itemYear.style.color = 'white';
-            itemYear.style.fontWeight = 'normal';
-            itemYear.style.textAlign = 'center';
-            itemYear.style.margin = '10px';
+            
 
             titleBox.appendChild(itemTitle);
             titleBox.appendChild(itemYear);
@@ -74,15 +61,5 @@ async function createMovieCard(mainContent) {
     }
 }
 
-// Image Card
-function createImageCard(imageSrc) {
-    const imageCard = div(['movie-image-card']);
-    imageCard.style.textAlign = 'center';
-    imageCard.style.margin = '0 auto';
-    const movieImage = image(imageSrc, ' ', 'movie-image');
-    movieImage.style.alignContent = 'center';
-    imageCard.appendChild(movieImage);
-    return imageCard;
-}
 
 export { createAppearances}
