@@ -23,9 +23,9 @@ async function createMainContent() {
 }
 
 // Title
-function createTitle(mainContent) {
+function createTitle() {
     const title = element('h2', ["title"], 'Appearances');
-    mainContent.appendChild(title);
+    container.appendChild(title);
 }
 
 // Movie Cards
