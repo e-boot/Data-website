@@ -47,14 +47,14 @@ function createDetails(mainContent, characterInfo){
    // Create a list for biography details
 const ul = element('ul');
 const details = [
-    `Date of birth: ${characterInfo.yearOfBirth || 'Unknown'}`,
-        `Date of death: ${characterInfo.yearOfDeath || 'Unknown'}`,
-        `Place of birth: ${characterInfo.placeOfBirth || 'Unknown'}`,
-        `Place of death: ${characterInfo.placeOfDeath || 'Unknown'}`,
+    `<span class="label-bold">Date of birth:</span> ${characterInfo.yearOfBirth || 'Unknown'}`,
+        `<span class="label-bold">Date of death:</span> ${characterInfo.yearOfDeath || 'Unknown'}`,
+        `<span class="label-bold">Place of birth:</span> ${characterInfo.placeOfBirth || 'Unknown'}`,
+        `<span class="label-bold">Place of death:</span> ${characterInfo.placeOfDeath || 'Unknown'}`,
 ];
 details.forEach(detail => {
     const li = element('li');
-    li.innerText = detail;
+    li.innerHTML = detail;
     ul.appendChild(li);
 });
 detailsContainer.appendChild(ul);

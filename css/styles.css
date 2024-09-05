@@ -186,6 +186,10 @@ body, html {
     text-align: center;
 }
 
+.label-bold {
+    font-weight: bold;
+}
+
 .bio-paragraph {
     font-size: 16px;
     color: #000;
