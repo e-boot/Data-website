@@ -9,7 +9,7 @@ import { createAppearances } from "./appearancesView.js";
 const container = document.getElementById('container');
 
 function createMainView() {
-
+ 
     container.innerHTML = ''; // clear container 
 
     window.history.pushState({},'', "/index.html"); // update url to index.html
@@ -37,9 +37,7 @@ function createMainView() {
 
     appearancesBtn.addEventListener('click', () => {
         createAppearances();
-        window.history.pushState({},'', "/appearances.html");
     });
-
 
     // create bio button
     const bioBtn = button("Biography");
@@ -47,11 +45,7 @@ function createMainView() {
     bioBtn.addEventListener('click', () => {
         container.innerHTML = ''; // clear container
         createBio();
-        window.history.pushState({},'', "/bio.html");
     });
-
-    
-
 
     btnContainer.appendChild(appearancesBtn);
     btnContainer.appendChild(bioBtn);

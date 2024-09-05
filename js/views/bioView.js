@@ -7,33 +7,34 @@ import { image } from "./components/image.js";
 const container = document.getElementById('container');
 
 // main function to create bio page
-function createBio() {
+async function createBio() {
     container.innerHTML = ''; // clear container
 
-    createBackBtn(container);
-    createMainContent(container);
-
+    await createBackBtn(container);
+    await createMainContent(container);
+    window.history.pushState({},'', "/bio");
 }
 
 
 async function createMainContent(container){
 
-// content container 
-const mainContent = div('bio-main-content');
-createTitle(mainContent);
-createImage(mainContent);
+    // content container 
+    const mainContent = div('bio-main-content');
+    createTitle(mainContent);
+    createImage(mainContent);
+
 
 // fetch data from api
-try{
-    const characterInfo = await getCharacter();
-    createDetails(mainContent,characterInfo);
-}catch(error){
-    console.error('Failed to fetch and create character details',error);
-}
+    try{
+        const characterInfo = await getCharacter();
+        createDetails(mainContent,characterInfo);
+    }catch(error){
+        console.error('Failed to fetch and create character details',error);
+    }
+    createParagraph(mainContent);
 
-createParagraph(mainContent);
 
-container.appendChild(mainContent);
+    container.appendChild(mainContent);
 }
 
 
@@ -47,13 +48,15 @@ function createDetails(mainContent, characterInfo){
    const detailsContainer = div(['details-container']);
    
    // Create a list for biography details
-const ul = element('ul');
-const details = [
-    `<span class="label-bold">Date of birth:</span> ${characterInfo.yearOfBirth || 'Unknown'}`,
-        `<span class="label-bold">Date of death:</span> ${characterInfo.yearOfDeath || 'Unknown'}`,
-        `<span class="label-bold">Place of birth:</span> ${characterInfo.placeOfBirth || 'Unknown'}`,
-        `<span class="label-bold">Place of death:</span> ${characterInfo.placeOfDeath || 'Unknown'}`,
+
+    const ul = element('ul');
+    const details = [
+    `Date of birth: ${characterInfo.yearOfBirth || 'Unknown'}`,
+        `Date of death: ${characterInfo.yearOfDeath || 'Unknown'}`,
+        `Place of birth: ${characterInfo.placeOfBirth || 'Unknown'}`,
+        `Place of death: ${characterInfo.placeOfDeath || 'Unknown'}`,
 ];
+  
 details.forEach(detail => {
     const li = element('li');
     li.innerHTML = detail;
