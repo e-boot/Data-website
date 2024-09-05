@@ -1,4 +1,4 @@
-# SPA - Final Assignment Project
+# SPA - Final Assignment Project ✨ 
 
 ## Project Overview 🚀
 
@@ -11,7 +11,7 @@ This project involves creating a themed single-page application (SPA) inspired b
 - **JavaScript**: For adding interactivity and dynamically displaying data retrieved from APIs.
 - **STAPI**: The primary API used for retrieving detailed information about Data from the Star Trek universe.
 
-## API Used
+## API Used 📡
 
 - **STAPI (Star Trek API)**: [STAPI Documentation](http://stapi.co) - This API provides detailed information on characters, episodes, starships, and more from the Star Trek universe. It's the core data source for this project, enabling us to fetch and display relevant details about the character Data.
 
@@ -22,28 +22,39 @@ The project follows a structured directory layout to ensure clarity and maintain
 ```
 / (Root Directory)
 │
-├── index.html          # Main HTML file
+├── index.html                      # Main HTML file
 │
-├── app.js              # Main JavaScript file
+├── app.js                          # Main JavaScript file
 │
-├── css/                # Directory for CSS files
-│   └── styles.css      # Main stylesheet
+├── css/                            # Directory for CSS files
+│   └── styles.css                  # Main stylesheet
 │
-├── js/                 # Directory for JavaScript files
-│   ├── views/          # Directory for view components
-│   │   ├── components/ # Directory for individual components
-│   │   │   ├── button.js    # Button component
-│   │   │   ├── div.js       # Div component
-│   │   │   ├── element.js   # Element component
-│   │   │   ├── image.js     # Image component
-│   │   └── mainView.js  # Main view script
+├── js/                             # Directory for JavaScript files
+│   ├── services/                   # Service components
+│   │   └── character-service.js    # Character service for handling API requests
+│   ├── views/                      # Directory for view components
+│   │   ├── components/             # Directory for individual components
+│   │   │   ├── appearancesView.js  # View for character appearances
+│   │   │   ├── bioView.js          # View for biography
+│   │   │   ├── mainView.js         # Main view script
+│   ├── router.js                   # Router for managing app navigation
 │
-├── assets/             # Directory for assets like images
-│   └── avatar.png      # Avatar image file
+├── assets/                         # Directory for assets like images
+│   ├── movie-images/               # Images for movies and characters
+│   │   ├── default-image.jpeg
+│   │   ├── first-contact.jpeg
+│   │   ├── generations.jpeg
+│   │   ├── insurrection.jpeg
+│   │   ├── nemesis.jpeg
+│   │   ├── the next generation.jpg
+│   ├── avatar.png
+│   ├── background.png
+│   ├── combined.png
+│   ├── combined_cropped.png
 │
-├── README.md           # Project documentation
+├── README.md                       # Project documentation
 │
-└── .gitignore          # Git ignore file
+└── .gitignore                      # Git ignore file
 ```
 
 ## Development Workflow 🔄
@@ -63,13 +74,25 @@ git clone https://github.com/e-boot/Data-website.git
 # SSH
 git clone git@github.com:e-boot/Data-website.git
 ```
-## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Suggested Future Improvements 💡
 
-Please make sure to update tests as appropriate.
+### 1. Q&A Section Implementation
+We suggest adding a **Q&A (Question and Answer)** section where users can interact with the app by asking questions about the character Data or episodes and receiving automated responses. This could be built using:
 
-## Contributors
+- **JavaScript**: To handle the dynamic logic and response generation.
+- **API Integration**: Using a secondary API or local knowledge base for handling questions related to the Star Trek universe.
+- **User Interface**: Add a simple input field for questions and a response section to display the answers.
+
+### 2. Enhanced Desktop Layout (CSS Approach)
+We plan to improve the CSS design approach for desktop devices by:
+
+- **Media Queries**: Ensuring a smooth, responsive design transition between mobile and desktop.
+- **Flexible Layout**: Utilizing CSS Grid or Flexbox to manage complex layouts effectively on larger screens.
+- **Animations and Transitions**: Adding CSS animations to enhance user interaction, such as hover effects on buttons and image transitions.
+
+## Contributors 👥
+
 - Daniel Magalhães - [@Housecold](https://github.com/Housecold)
 - Diogo Torres - [@Dmct30](https://github.com/Dmct30)
 - Élio Botas - [@e-boot](https://github.com/e-boot)
