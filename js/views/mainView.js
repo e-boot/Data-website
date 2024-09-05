@@ -8,6 +8,11 @@ import { createAppearances } from "./appearancesView.js";
 
 const container = document.getElementById('container');
 
+ /**
+     * Renders the page based on the current URL path
+     * 
+     * @param {string} pathname - The current URL path
+     */
 function createMainView() {
  
     container.innerHTML = ''; // clear container 

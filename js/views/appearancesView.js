@@ -7,6 +7,11 @@ import { getMovies } from "../services/character-service.js";  // Corrected impo
 
 const container = document.getElementById('container');
 
+/**
+ * Creates the appearances page of the application
+ * 
+ * @returns {Promise<void>}
+ */
 async function createAppearances() {
     container.innerHTML = '';
     
@@ -15,6 +20,12 @@ async function createAppearances() {
     window.history.pushState({},'', "/appearances");
 }
 
+/**
+ * Creates the main content of the appearances page
+ * 
+ * @param {HTMLElement} container - The container element
+ * @returns {Promise<void>}
+ */
 async function createMainContent() {
     const mainContent = div(['appearance-main-content']);
 
@@ -23,13 +34,21 @@ async function createMainContent() {
     container.appendChild(mainContent);
 }
 
-// Title
+/**
+ * Creates the title element
+ * 
+ * @param {HTMLElement} mainContent - The main content element
+ */
 function createTitle() {
     const title = element('h2', ["title"], 'Appearances');
     container.appendChild(title);
 }
 
-// Movie Cards
+/**
+ * Creates the movie cards
+ * 
+ * @param {HTMLElement} mainContent - The main content element
+ */
 async function createMovieCard(mainContent) {
     try {
         // Fetch movies data
