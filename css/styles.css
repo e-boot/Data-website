@@ -85,7 +85,7 @@ body, html {
     background-color: #e5d2a0;
 }
 
-/* Additional Media Queries for Tablets and Larger Screens */
+/* Media Queries for Larger Screens */
 @media (min-width: 600px) {
     .greeting {
         font-size: 40px;
@@ -215,7 +215,7 @@ body, html {
     justify-content: center;
 }
 
-/* Media queries for larger screens */
+/* Media Queries for Larger Screens */
 @media (min-width: 600px) {
     .bio-main-content {
         font-size: 14px;
@@ -246,6 +246,13 @@ body, html {
 
     .details-container ul {
         font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .bio-paragraph {
+        text-align: center; /* Alinha o texto ao centro no desktop */
+        max-width: 80%;     /* Ajusta a largura para um melhor visual */
     }
 }
 
@@ -296,6 +303,7 @@ body, html {
     text-align: center;
 }
 
+/* Media Queries for Larger Screens */
 @media only screen and (min-width: 768px) {
     .appearance-main-content {
         flex-direction: row;
