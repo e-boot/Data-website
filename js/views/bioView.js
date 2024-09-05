@@ -7,31 +7,31 @@ import { image } from "./components/image.js";
 const container = document.getElementById('container');
 
 // main function to create bio page
-function createBio() {
+async function createBio() {
     container.innerHTML = ''; // clear container
 
-    createBackBtn(container);
-    createMainContent(container);
-
+    await createBackBtn(container);
+    await createMainContent(container);
+    window.history.pushState({},'', "/bio");
 }
 
 
 async function createMainContent(container){
 
-// content container 
-const mainContent = div('bio-main-content');
-createTitle(mainContent);
-createImage(mainContent);
+    // content container 
+    const mainContent = div('bio-main-content');
+    createTitle(mainContent);
+    createImage(mainContent);
 
-try{
-    const characterInfo = await getCharacter();
-    createDetails(mainContent,characterInfo);
-}catch(error){
-    console.error('Failed to fetch and create character details',error);
-}
-createParagraph(mainContent);
+    try{
+        const characterInfo = await getCharacter();
+        createDetails(mainContent,characterInfo);
+    }catch(error){
+        console.error('Failed to fetch and create character details',error);
+    }
+    createParagraph(mainContent);
 
-container.appendChild(mainContent);
+    container.appendChild(mainContent);
 }
 
 
@@ -45,8 +45,8 @@ function createDetails(mainContent, characterInfo){
    const detailsContainer = div(['details-container']);
    
    // Create a list for biography details
-const ul = element('ul');
-const details = [
+    const ul = element('ul');
+    const details = [
     `Date of birth: ${characterInfo.yearOfBirth || 'Unknown'}`,
         `Date of death: ${characterInfo.yearOfDeath || 'Unknown'}`,
         `Place of birth: ${characterInfo.placeOfBirth || 'Unknown'}`,

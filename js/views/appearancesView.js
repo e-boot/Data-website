@@ -9,16 +9,17 @@ const container = document.getElementById('container');
 
 async function createAppearances() {
     container.innerHTML = '';
-
-    createBackBtn(container);
-    createMainContent();  
+    
+    await createBackBtn(container);
+    await createMainContent(container);
+    window.history.pushState({},'', "/appearances");
 }
 
 async function createMainContent() {
     const mainContent = div(['appearance-main-content']);
 
-    createTitle(mainContent);
-    createMovieCard(mainContent);  
+    await createTitle(mainContent);
+    await createMovieCard(mainContent);  
     container.appendChild(mainContent);
 }
 

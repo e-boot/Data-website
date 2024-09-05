@@ -9,7 +9,7 @@ import { createAppearances } from "./appearancesView.js";
 const container = document.getElementById('container');
 
 function createMainView() {
-
+ 
     container.innerHTML = ''; // clear container 
 
     window.history.pushState({},'', "/index.html"); // update url to index.html
@@ -39,9 +39,7 @@ function createMainView() {
         event.preventDefault();
         console.log('button clicked');
         createAppearances();
-        window.history.pushState({},'', "/appearances.html");
     });
-
 
     // create bio button
     const bioBtn = button("Biography");
@@ -50,11 +48,7 @@ function createMainView() {
         event.preventDefault();
         console.log('button clicked');
         createBio();
-        window.history.pushState({},'', "/bio.html");
     });
-
-    
-
 
     btnContainer.appendChild(appearancesBtn);
     btnContainer.appendChild(bioBtn);
