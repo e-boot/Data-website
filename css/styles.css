@@ -1,4 +1,19 @@
 /*------------------------------------*\
+            #FONT FACE
+\*------------------------------------*/
+
+/*Title font*/
+@font-face {
+  font-family: 'Font 1';
+  src: url('fonts/FinalFrontierOldStyle-8Pg.ttf') format('truetype');
+}
+/*Button font*/
+@font-face {
+    font-family: 'Font 2';
+    src: url('fonts/RocketRinder-yV5d') format('truetype');
+}
+
+/*------------------------------------*\
             #MAIN VIEW PAGE
 \*------------------------------------*/
 body, html {
@@ -32,10 +47,11 @@ body, html {
 }
 
 .greeting {
+    /*font-family: 'Font 1';*/
     font-size: 36px;
     font-weight: bold;
     color: #000;
-    margin: 0 0 20px 0;
+    margin-bottom: 30%;
 }
 
 .combined-image {
@@ -70,7 +86,7 @@ body, html {
     border: 2px solid #000;
     border-radius: 25px;
     cursor: pointer;
-    font-family: "Courier New", monospace;
+    font-family: 'Font 2', monospace;
     width: 45%;
     max-width: 180px;
     box-sizing: border-box;
@@ -118,7 +134,7 @@ body, html {
 
     .btn-container button {
         font-size: 20px;
-        padding: 16px 32px;
+        padding: 16px;
     }
 }
 
@@ -132,19 +148,20 @@ body, html {
 }
 
 .title {
+    font-family: 'Font 2', sans-serif;
     text-align:center;
-   
     text-transform:uppercase;
-    font-size:26px; letter-spacing:1px;
+    font-size:26px; 
+    letter-spacing:1px;
 }
 
 /* Appearances */
 
 .appearance-main-content{
-   font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size : 13px;
-   display: flex;
-   flex-direction: column;
+    display: flex;
+    flex-direction: column;
     align-items : center;
 }
 
