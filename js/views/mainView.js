@@ -36,6 +36,7 @@ function createMainView() {
     const appearancesBtn = button("Appearances");
 
     appearancesBtn.addEventListener('click', () => {
+        container.innerHTML = '';
         createAppearances();
     });
 
@@ -43,8 +44,8 @@ function createMainView() {
     const bioBtn = button("Biography");
 
     bioBtn.addEventListener('click', () => {
-        container.innerHTML = ''; // clear container
-        createBio();
+        container.innerHTML = '';
+        createBio(); 
     });
 
     btnContainer.appendChild(appearancesBtn);
