@@ -23,13 +23,21 @@ async function createMainContent() {
     container.appendChild(mainContent);
 }
 
-// Title
-function createTitle() {
+
+/**
+ * Creates the title element for the appearances section.
+ * @param {HTMLElement} mainContent The main content element to append the title to.
+ */
+function createTitle(mainContent) {
+
     const title = element('h2', ["title"], 'Appearances');
     container.appendChild(title);
 }
 
-// Movie Cards
+/**
+* Creates the movie cards and appends them to the main content.
+* @param {HTMLElement} mainContent The main content element to append the movie cards to.
+*/
 async function createMovieCard(mainContent) {
     try {
         // Fetch movies data
