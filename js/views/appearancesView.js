@@ -7,6 +7,11 @@ import { getMovies } from "../services/character-service.js";  // Corrected impo
 
 const container = document.getElementById('container');
 
+/**
+ * Function to create the appearances page
+ * 
+ * Clears the container, creates the back button, main content, and updates the URL
+ */
 async function createAppearances() {
     container.innerHTML = '';
     
@@ -15,6 +20,13 @@ async function createAppearances() {
     window.history.pushState({},'', "/appearances");
 }
 
+/**
+ * Function to create the main content of the appearances page
+ * 
+ * Creates the title and movie cards, and appends them to the container
+ * 
+ * @param {HTMLElement} container The container element to append the main content to
+ */
 async function createMainContent() {
     const mainContent = div(['appearance-main-content']);
 
@@ -23,13 +35,25 @@ async function createMainContent() {
     container.appendChild(mainContent);
 }
 
-// Title
+/**
+ * Function to create the title of the appearances page
+ * 
+ * Creates an h2 element with the text "Appearances" and appends it to the container
+ * 
+ * @param {HTMLElement} container The container element to append the title to
+ */
 function createTitle() {
     const title = element('h2', ["title"], 'Appearances');
     container.appendChild(title);
 }
 
-// Movie Cards
+/**
+ * Function to create the movie cards
+ * 
+ * Fetches the movies data, creates a movie card for each movie, and appends them to the main content
+ * 
+ * @param {HTMLElement} mainContent The main content element to append the movie cards to
+ */
 async function createMovieCard(mainContent) {
     try {
         // Fetch movies data

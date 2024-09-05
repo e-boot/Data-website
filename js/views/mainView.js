@@ -8,6 +8,13 @@ import { createAppearances } from "./appearancesView.js";
 
 const container = document.getElementById('container');
 
+/**
+ * Main function to create the main view
+ * 
+ * Clears the container, creates the main view elements, and updates the URL
+ * 
+ * @returns {HTMLElement} The main view container element
+ */
 function createMainView() {
  
     container.innerHTML = ''; // clear container 
