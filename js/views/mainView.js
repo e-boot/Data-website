@@ -35,18 +35,15 @@ function createMainView() {
     //create appearance button
     const appearancesBtn = button("Appearances");
 
-    appearancesBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        console.log('button clicked');
+    appearancesBtn.addEventListener('click', () => {
         createAppearances();
     });
 
     // create bio button
     const bioBtn = button("Biography");
 
-    bioBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        console.log('button clicked');
+    bioBtn.addEventListener('click', () => {
+        container.innerHTML = ''; // clear container
         createBio();
     });
 

@@ -23,6 +23,8 @@ async function createMainContent(container){
     createTitle(mainContent);
     createImage(mainContent);
 
+
+// fetch data from api
     try{
         const characterInfo = await getCharacter();
         createDetails(mainContent,characterInfo);
@@ -30,6 +32,7 @@ async function createMainContent(container){
         console.error('Failed to fetch and create character details',error);
     }
     createParagraph(mainContent);
+
 
     container.appendChild(mainContent);
 }
@@ -45,6 +48,7 @@ function createDetails(mainContent, characterInfo){
    const detailsContainer = div(['details-container']);
    
    // Create a list for biography details
+
     const ul = element('ul');
     const details = [
     `Date of birth: ${characterInfo.yearOfBirth || 'Unknown'}`,
@@ -52,9 +56,10 @@ function createDetails(mainContent, characterInfo){
         `Place of birth: ${characterInfo.placeOfBirth || 'Unknown'}`,
         `Place of death: ${characterInfo.placeOfDeath || 'Unknown'}`,
 ];
+  
 details.forEach(detail => {
     const li = element('li');
-    li.innerText = detail;
+    li.innerHTML = detail;
     ul.appendChild(li);
 });
 detailsContainer.appendChild(ul);
@@ -72,6 +77,7 @@ function createImage(mainContent){
    // Create a paragraph with bio
    function createParagraph(mainContent) {
     const paragraph = element('p');
+    paragraph.classList.add('bio-paragraph');
     paragraph.innerText = `
         Data is a fictional character in Star Trek franchise.
         Data is a self-aware, sapient, sentient and anatomically 
