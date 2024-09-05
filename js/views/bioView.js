@@ -23,12 +23,14 @@ const mainContent = div('bio-main-content');
 createTitle(mainContent);
 createImage(mainContent);
 
+// fetch data from api
 try{
     const characterInfo = await getCharacter();
     createDetails(mainContent,characterInfo);
 }catch(error){
     console.error('Failed to fetch and create character details',error);
 }
+
 createParagraph(mainContent);
 
 container.appendChild(mainContent);

@@ -8,7 +8,7 @@ import { getMovies } from "../services/character-service.js";  // Corrected impo
 const container = document.getElementById('container');
 
 async function createAppearances() {
-    container.innerHTML = '';
+    container.innerHTML = ''; 
 
     createBackBtn(container);
     createMainContent();  
