@@ -32,12 +32,22 @@ The project follows a structured directory layout to ensure clarity and maintain
 ├── js/                             # Directory for JavaScript files
 │   ├── services/                   # Service components
 │   │   └── character-service.js    # Character service for handling API requests
+|   |
 │   ├── views/                      # Directory for view components
 │   │   ├── components/             # Directory for individual components
-│   │   │   ├── appearancesView.js  # View for character appearances
-│   │   │   ├── bioView.js          # View for biography
-│   │   │   ├── mainView.js         # Main view script
-│   ├── router.js                   # Router for managing app navigation
+│   │   │   ├── backBtn.js          # Back button component
+│   │   |   ├── banner.js           # Banner component
+│   │   |   ├── button.js           # Button component
+│   │   |   ├── div.js              # Div container component
+│   │   |   ├── elements.js         # Elements helper module
+│   │   |   ├── image.js            # Image component
+│   │   |   └── movies-image.js     # Movies image component
+|   |   |   
+│   │   ├── appearancesView.js      # View for character appearances
+│   │   ├── bioView.js              # View for biography
+│   │   └── mainView.js             # Main view script
+|   |   
+│   └── router.js                   # Router for managing app navigation
 │
 ├── assets/                         # Directory for assets like images
 │   ├── movie-images/               # Images for movies and characters
@@ -46,11 +56,12 @@ The project follows a structured directory layout to ensure clarity and maintain
 │   │   ├── generations.jpeg
 │   │   ├── insurrection.jpeg
 │   │   ├── nemesis.jpeg
-│   │   ├── the next generation.jpg
+│   │   └── the next generation.jpg
+|   |   
 │   ├── avatar.png
 │   ├── background.png
 │   ├── combined.png
-│   ├── combined_cropped.png
+│   └── combined_cropped.png
 │
 ├── README.md                       # Project documentation
 │
