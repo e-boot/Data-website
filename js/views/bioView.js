@@ -72,6 +72,7 @@ function createImage(mainContent){
    // Create a paragraph with bio
    function createParagraph(mainContent) {
     const paragraph = element('p');
+    paragraph.classList.add('bio-paragraph');
     paragraph.innerText = `
         Data is a fictional character in Star Trek franchise.
         Data is a self-aware, sapient, sentient and anatomically 
