@@ -17,7 +17,7 @@ const container = document.getElementById('container');
  * @returns {HTMLElement} The main view container element.
  */
 function createMainView() {
-
+ 
     container.innerHTML = ''; // clear container 
 
     window.history.pushState({},'', "/index.html"); // update url to index.html
@@ -43,26 +43,18 @@ function createMainView() {
     //create appearance button
     const appearancesBtn = button("Appearances");
 
-    appearancesBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        console.log('button clicked');
+    appearancesBtn.addEventListener('click', () => {
+        container.innerHTML = '';
         createAppearances();
-        window.history.pushState({},'', "/appearances.html");
     });
-
 
     // create bio button
     const bioBtn = button("Biography");
 
-    bioBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        console.log('button clicked');
-        createBio();
-        window.history.pushState({},'', "/bio.html");
+    bioBtn.addEventListener('click', () => {
+        container.innerHTML = '';
+        createBio(); 
     });
-
-    
-
 
     btnContainer.appendChild(appearancesBtn);
     btnContainer.appendChild(bioBtn);

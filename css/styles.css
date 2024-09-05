@@ -101,7 +101,7 @@ body, html {
     background-color: #e5d2a0;
 }
 
-/* Additional Media Queries for Tablets and Larger Screens */
+/* Media Queries for Larger Screens */
 @media (min-width: 600px) {
     .greeting {
         font-size: 40px;
@@ -138,13 +138,25 @@ body, html {
     }
 }
 
-/* Bio Page */ 
 
-.bio-main-content{
-    padding: 20px;
-    font-family: Arial, sans-serif;
+
+/*------------------------------------*\
+            #BIOGRAPHY PAGE
+\*------------------------------------*/
+
+.bio-main-content {
+    padding: 10px 20px;
+    font-family: "Courier New", monospace;
     font-size: 12px;
-
+    background-color: #f3e5b1;
+    color: #000;
+    line-height: 1.4;
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow-y: auto;
 }
 
 .title {
@@ -155,7 +167,67 @@ body, html {
     letter-spacing:1px;
 }
 
-/* Appearances */
+.bio-paragraph::after {
+    content: ' • • • ';
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    color: #000;
+    font-size: 18px;
+}
+
+.btn-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 600px) {
+    .bio-main-content {
+        font-size: 14px;
+        padding: 20px;
+    }
+
+    .combined-image {
+        max-width: 350px;
+    }
+
+    .details-container ul {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .bio-main-content {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .combined-image {
+        max-width: 380px;
+    }
+
+    .details-container ul {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .bio-paragraph {
+        text-align: center; /* Alinha o texto ao centro no desktop */
+        max-width: 80%;     /* Ajusta a largura para um melhor visual */
+    }
+}
+
+
+
+/*------------------------------------*\
+           #APPEARANCES PAGE
+\*------------------------------------*/
 
 .appearance-main-content{
     font-family: Arial, sans-serif;
@@ -196,4 +268,18 @@ body, html {
 .item-year{
     color: white;
     text-align: center;
+}
+
+/* Media Queries for Larger Screens */
+@media only screen and (min-width: 768px) {
+    .appearance-main-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .movie-card {
+        margin: 20px;
+        width: 300px;
+    }
 }

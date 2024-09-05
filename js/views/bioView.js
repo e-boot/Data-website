@@ -7,12 +7,12 @@ import { image } from "./components/image.js";
 const container = document.getElementById('container');
 
 // main function to create bio page
-function createBio() {
+async function createBio() {
     container.innerHTML = ''; // clear container
 
-    createBackBtn(container);
-    createMainContent(container);
-
+    await createBackBtn(container);
+    await createMainContent(container);
+    window.history.pushState({},'', "/bio");
 }
 
 /**
@@ -26,6 +26,7 @@ async function createMainContent(container){
     createTitle(mainContent);
     createImage(mainContent);
 
+// fetch data from api
     try{
         const characterInfo = await getCharacter();
         createDetails(mainContent,characterInfo);
@@ -33,6 +34,7 @@ async function createMainContent(container){
         console.error('Failed to fetch and create character details',error);
     }
     createParagraph(mainContent);
+
 
     container.appendChild(mainContent);
 }
@@ -83,6 +85,7 @@ function createImage(mainContent){
     mainContent.appendChild(img);
     }
 
+
 /**
  * Helper function to create the paragraph section
  * @param {HTMLElement} mainContent The main content container to append the paragraph to
@@ -102,5 +105,6 @@ function createParagraph(mainContent) {
  
  mainContent.appendChild(paragraph);
 }
+
 
 export {createBio}

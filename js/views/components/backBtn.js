@@ -7,6 +7,7 @@ import { createMainView } from "../mainView.js";
  */
 function createBackBtn(container) {
     // Create a back button
+
     const backButton = document.createElement('button');
     backButton.innerText = '< Back';
     backButton.style.margin = '10px';
@@ -21,13 +22,15 @@ function createBackBtn(container) {
 
     backButton.addEventListener('click', (event) => {
     event.preventDefault(); 
+
     createMainView();
 
     // change url 
     window.history.pushState({},'','/index.html');
 });
 
-container.appendChild(backButton);
+backBtnContainer.appendChild(backButton);
+container.appendChild(backBtnContainer);
 
     
 }

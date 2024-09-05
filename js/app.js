@@ -6,9 +6,9 @@ window.addEventListener("DOMContentLoaded", () => {
     createBanner();
     renderPage(window.location.pathname);
 
-    // Attach the route event to all anchor tags
+    // Attach the route event to all 
     document.querySelectorAll('button').forEach(anchor => {
-        anchor.addEventListener('click', route);
+        anchor.addEventListener('click', route());
     });
 });
 
