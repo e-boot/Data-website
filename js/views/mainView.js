@@ -17,7 +17,7 @@ function createMainView() {
  
     container.innerHTML = ''; // clear container 
 
-    window.history.pushState({},'', "/index.html"); // update url to index.html
+    window.history.pushState({},'', "/"); // update url to index.html
     const viewContainer = div(['view-container']);
 
     // create h1 greeting 

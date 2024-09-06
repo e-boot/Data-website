@@ -1,4 +1,7 @@
 import { renderPage } from './router.js';
+import {createBanner} from './views/components/banner.js'
+
+createBanner();
 
 document.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', function (event) {

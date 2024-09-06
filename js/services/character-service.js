@@ -5,14 +5,28 @@ const charUrl = 'http://stapi.co/api/v1/rest/character?uid=CHMA0000261620';
  * 
  * @returns {Promise<{name: string, yearOfBirth: number, yearOfDeath: number, placeOfBirth: string, placeOfDeath: string}>}
  */
-async function getCharacter() {
+
+async function getDataData() {
   try {
     const response = await fetch(charUrl);
     const data = await response.json();
-    const character = data.character;
+   return data;
+  }catch(error){
+    console.log('failed to fetch data');
+    throw error;
+    
+  }
+}
+
+
+
+function getCharacter() {
+  
     
     const { name, placeOfBirth, yearOfBirth, yearOfDeath, placeOfDeath } = character;
 
+    data = getDataData();
+    data = data.character;
     const personalInfo = {
       name,
       yearOfBirth,
@@ -22,21 +36,17 @@ async function getCharacter() {
     };
 
     return personalInfo;
-  } catch (error) {
-    console.error('Error fetching personal info:', error);
-    throw error;
   }
-}
 
 /**
  * Fetches performer information from the API and returns a promise with an array of performer info objects.
  * 
  * @returns {Promise<Array<{name: string, dateOfBirth: string, placeOfBirth: string, dateOfDeath: string, placeOfDeath: string}>>}
  */
-async function getPerformer() {
-    try {
-        const response = await fetch(charUrl);
-        const data = await response.json();
+    function getPerformer() {
+
+        
+        const data = getDataData();
         const character = data.character;
         
         const { performers } = character;
@@ -54,10 +64,6 @@ async function getPerformer() {
         });
     
         return performerInfo;
-      } catch (error) {
-        console.error('Error fetching performer info:', error);
-        throw error;
-      }
 }
 
 /**
